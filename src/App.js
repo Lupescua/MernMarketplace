@@ -1,23 +1,33 @@
 import React, {Component} from 'react';
 import './App.css';
-import List from './List'
-import AddBook from "./AddBook";
+// import List from './List'
+// import AddBook from "./AddBook";
 
+// const books = [
+//   { title: 'Title', category: 'Category' },
+//   { title: 'Do laundry', category: 'SF' },
+//   { title: 'Clean bedroom', category: 'SF' },
+//   { title: 'Bake cake', category: 'SF' },
+//   { title: 'Pick up groceries', category: 'business' },
+//   { title: 'Post letter', category: 'business' }
+// ]
 
 class App extends Component {
   constructor(props) {
     super(props);
     // Ideally, this would be loaded from an API (database)
     this.state = {
-        books: [
-          { title: 'Title', category: 'Category' },
-          { title: 'Do laundry', category: 'SF' },
-          { title: 'Clean bedroom', category: 'SF' },
-          { title: 'Bake cake', category: 'SF' },
-          { title: 'Pick up groceries', category: 'business' },
-          { title: 'Post letter', category: 'business' }
-        ]
-    };
+      books: [
+        { title: 'Title', category: 'Category' },
+        { title: 'Do laundry', category: 'SF' },
+        { title: 'Clean bedroom', category: 'SF' },
+        { title: 'Bake cake', category: 'SF' },
+        { title: 'Pick up groceries', category: 'business' },
+        { title: 'Post letter', category: 'business' }
+      ],
+    title: "",
+    category: ""
+  };
   }
 
   addBook(title,category) {
@@ -31,6 +41,21 @@ class App extends Component {
           // The new todoList contains all the old items + the new taskObject (...spread syntax)
           books: [...this.state.books, bookObject]
       });
+  }  
+  addTitle(event) {
+    this.setState({
+        title: event.target.value 
+    });
+  }
+  addCategory(event) {
+      this.setState({
+          category: event.target.value 
+      });
+  }  
+ 
+  handleButtonClick(event) {
+    event.preventDefault(); 
+    this.addBook(this.state.title,this.state.category); 
   }
   handleDelete() { 
   // handleDelete(event) {
