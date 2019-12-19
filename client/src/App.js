@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
+// import { Link, Router, Redirect } from "@reach/router";
+import { connect } from "react-redux";
 import './App.css';
-// import List from './List'
-// import AddBook from "./AddBook";
-
-// const books = [
-//   { title: 'Title', category: 'Category' },
-//   { title: 'Do laundry', category: 'SF' },
-//   { title: 'Clean bedroom', category: 'SF' },
-//   { title: 'Bake cake', category: 'SF' },
-//   { title: 'Pick up groceries', category: 'business' },
-//   { title: 'Post letter', category: 'business' }
-// ]
+import List from './List'
+import AddBook from "./AddBook";
+import Categories from "./Categories";
+import Category from "./Category";
+// import AdminArea from "./AdminArea";
+import Book from "./Book";
+import CreateBook from "./CreateBook";
 
 class App extends Component {
   constructor(props) {
@@ -26,7 +24,8 @@ class App extends Component {
         { title: 'Post letter', category: 'business' }
       ],
     title: "",
-    category: ""
+    category: "",    
+    alertMsg: ""
   };
   }
 
